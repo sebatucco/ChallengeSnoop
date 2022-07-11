@@ -1,0 +1,7 @@
+Sentencias de consola 
+
+Enable-Migrations
+
+add-migration {nombre} -Context {contexto}
+
+Update-Database

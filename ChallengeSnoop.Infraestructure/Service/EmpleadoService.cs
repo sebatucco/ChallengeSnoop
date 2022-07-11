@@ -34,8 +34,8 @@ namespace ChallengeSnoop.Infraestructure.Service
 
         public async Task<List<Empleado>> AntiguedadEmpleado(string antiguedad)
         {
-
-            var antiguedadEmpleados = await _unitOfWork.EmpleadoRespository.Antiguedad(RomanToInt(antiguedad));
+            var menorFecha = DateTime.Today.Year - RomanToInt(antiguedad);
+            var antiguedadEmpleados = await _unitOfWork.EmpleadoRespository.Antiguedad(menorFecha);
             return antiguedadEmpleados.ToList();
         }
 

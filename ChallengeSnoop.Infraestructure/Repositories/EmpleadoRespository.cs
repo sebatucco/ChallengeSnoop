@@ -19,7 +19,7 @@ namespace ChallengeSnoop.Infraestructure.Repositories
         }
         public async Task<IEnumerable<Empleado>> Antiguedad(int antiguedad)
         {
-            return  await _context.Empleados.Where(x => x.FechaIngreso.Year.Equals(antiguedad)).ToListAsync();
+            return  await _context.Empleados.Where(x => x.FechaIngreso.Year < DateTime.Today.Year && x.FechaIngreso.Year >= antiguedad).ToListAsync();
         }
     }
 }

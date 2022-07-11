@@ -5,3 +5,39 @@ Enable-Migrations
 add-migration {nombre} -Context {contexto}
 
 Update-Database
+
+
+----------------------------------------------
+script base de datos 
+
+CREATE TABLE [dbo].[Empleados](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NOT NULL,
+	[Apellido] [nvarchar](max) NOT NULL,
+	[Dni] [nvarchar](max) NOT NULL,
+	[FechaNacimiento] [datetime2](7) NOT NULL,
+	[FechaIngreso] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Empleados] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[Empleados] ([Nombre],[Apellido],[Dni],[FechaNacimiento],[FechaIngreso])
+     VALUES
+           ('Manuel','Gomez','1234567',	'1979-09-25','2019-10-10')
+GO
+
+INSERT INTO [dbo].[Empleados] ([Nombre],[Apellido],[Dni],[FechaNacimiento],[FechaIngreso])
+     VALUES
+           ('Miguel','Robles','23456789','1980-07-11','2011-07-11')
+GO
+
+
+INSERT INTO [dbo].[Empleados] ([Nombre],[Apellido],[Dni],[FechaNacimiento],[FechaIngreso])
+     VALUES
+           ('Jose','Aguero','34343454','1980-06-11','2019-05-10')
+GO
+
+* la antiguedad esta calcualda por medio del año en que ingreso conta el año actual 
